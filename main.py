@@ -1,4 +1,5 @@
 import json
+import os
 from yt_dlp import YoutubeDL
 
 songInfo = {}
@@ -42,6 +43,8 @@ def downloadSong(URL, startPoint):
 
 
 if __name__ == "__main__":
+  
+    os.makedirs('songs') if not os.path.exists('songs') else pass
     
     with open("inputfile.txt", "r") as file:
         lines = file.readlines()
