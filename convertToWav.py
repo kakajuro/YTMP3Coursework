@@ -13,11 +13,15 @@ for file in os.listdir(currentPath):
     
     try:
      
-      newFilename = file.replace(".mp3", ".wav")
+      newFilename = file.replace(".mp3", ".ogg")
       
       baseArray = ["ffmpeg", "-i"]
       
-      baseArray.append(os.path.join(currentPath, file))
+      baseArray.append(os.path.join(currentPath, file)) 
+      
+      baseArray.append("-ar")
+      baseArray.append("44100")
+           
       baseArray.append(os.path.join(newPath, newFilename))
       
       subprocess.call(baseArray)
